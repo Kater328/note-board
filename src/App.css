@@ -37,6 +37,7 @@ button:hover {
     height: 150px;
     background-color: #fff;
     border: black 1px solid;
+    position: relative;
 }
 
 .note_header {

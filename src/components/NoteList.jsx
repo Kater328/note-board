@@ -1,17 +1,21 @@
 import React from "react";
+import NoteBox from "./NoteBox";
 
-function NoteList() {
-    return (
-      <div className="wrapper">
-          {/* <div className="note">
-              <div className="note_header">
-                  Note 1
-                  <button>x</button>
-              </div>
-              <textarea>some text</textarea>
-            </div> */}
-      </div>
-    );
-  }
+function NoteList(props) {
+  return (
+    <div className="wrapper">
+      {
+        props.notes.map(item => 
+          <NoteBox 
+            key={item.id}
+            item={item}
+            changeNote={props.changeNote}
+            deleteNote={props.deleteNote}
+          />
+        )
+      }
+    </div>
+  );
+}
   
-  export default NoteList;
+export default NoteList;
