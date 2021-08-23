@@ -11,6 +11,7 @@ function NoteList(props) {
             item={item}
             changeNote={props.changeNote}
             deleteNote={props.deleteNote}
+            changePosition={props.changePosition}
           />
         )
       }

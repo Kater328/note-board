@@ -15,8 +15,8 @@ function App() {
   const createNewNote = (note) => {
     api.post("", {
       text: note,
-      top: "0px",
-      left: "0px"
+      top: 0,
+      left: 0
     })
     .then(({data}) => setNotes(
       [...notes, data]
@@ -25,6 +25,14 @@ function App() {
 
   const changeNote = (note, text) => {
     api.put(`/${note.id}`, { ...note, text })
+    .then(({data}) => setNotes(
+      notes.map(item => item.id === note.id ? data : item)
+    ));
+  }
+
+  const changePosition = (note, left, top) => {
+    console.log(note, left, top);
+    api.put(`/${note.id}`, { ...note, left, top })
     .then(({data}) => setNotes(
       notes.map(item => item.id === note.id ? data : item)
     ));
@@ -44,7 +52,8 @@ function App() {
       <NoteList 
         notes={notes} 
         changeNote={changeNote}
-        deleteNote={deleteNote}/>
+        deleteNote={deleteNote}
+        changePosition={changePosition}/>
     </div>
   );
 }

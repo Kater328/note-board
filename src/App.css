@@ -40,6 +40,10 @@ button:hover {
     position: relative;
 }
 
+.note :hover {
+    cursor: pointer;
+}
+
 .note_header {
     height: 20px;
     display: flex;
