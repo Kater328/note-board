@@ -31,7 +31,6 @@ function App() {
   }
 
   const changePosition = (note, left, top) => {
-    console.log(note, left, top);
     api.put(`/${note.id}`, { ...note, left, top })
     .then(({data}) => setNotes(
       notes.map(item => item.id === note.id ? data : item)
